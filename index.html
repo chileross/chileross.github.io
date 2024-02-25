@@ -1,65 +1,83 @@
 <!DOCTYPE html>
-<html lang="zh-CN">
+<html>
 <head>
-    <meta charset="UTF-8">
-    <title>KaoLM</title>
-    <style>
-        body {
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            height: 100vh;
-            background-color: #1a1a1a;
-            font-family: 'Arial', sans-serif;
-        }
+  <title>KaoLM</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      text-align: center;
+      background-color: #f0f0f0;
+      padding: 50px;
+    }
 
-        #clock {
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            font-size: 3em;
-            color: #fff;
-            text-shadow: 0 0 10px rgba(255, 255, 255, 0.5), 0 0 20px rgba(255, 255, 255, 0.3), 0 0 30px rgba(255, 255, 255, 0.2), 0 0 40px rgba(255, 255, 255, 0.1);
-            border: 2px solid #fff;
-            border-radius: 50%;
-            width: 200px;
-            height: 200px;
-            padding: 20px;
-            box-sizing: border-box;
-            animation: pulse 1s infinite;
-        }
+    h1 {
+      font-size: 36px;
+      color: #333;
+    }
 
-        @keyframes pulse {
-            0% { transform: scale(1); }
-            50% { transform: scale(1.05); }
-            100% { transform: scale(1); }
-        }
-    </style>
+    p {
+      font-size: 20px;
+      color: #666;
+    }
+
+    .heart {
+      width: 100px;
+      height: 90px;
+      position: relative;
+      margin: 50px auto;
+    }
+
+    .heart::before,
+    .heart::after {
+      content: "";
+      position: absolute;
+      top: 40px;
+      width: 52px;
+      height: 80px;
+      border-radius: 50px 50px 0 0;
+      background: red;
+    }
+
+    .heart::before {
+      left: 50px;
+      transform: rotate(-45deg);
+      transform-origin: 0 100%;
+    }
+
+    .heart::after {
+      left: 0;
+      transform: rotate(45deg);
+      transform-origin: 100% 100%;
+    }
+
+    .heart.animate {
+      animation: pulse 2s infinite;
+    }
+
+    @keyframes pulse {
+      0% {
+        transform: scale(1);
+      }
+      50% {
+        transform: scale(1.1);
+      }
+      100% {
+        transform: scale(1);
+      }
+    }
+  </style>
 </head>
 <body>
-    <div id="clock"></div>
+  <h1>我爱你</h1>
+  <p>这是我对你的感情，一颗永远跳动的心。</p>
+  <div class="heart" id="heart"></div>
 
-    <script>
-        function showTime() {
-            var now = new Date();
-            var hours = now.getHours();
-            var minutes = now.getMinutes();
-            var seconds = now.getSeconds();
-
-            // 确保小时、分钟和秒都是两位数
-            hours = hours < 10 ? "0" + hours : hours;
-            minutes = minutes < 10 ? "0" + minutes : minutes;
-            seconds = seconds < 10 ? "0" + seconds : seconds;
-
-            // 格式化时间字符串
-            var timeString = hours + ":" + minutes + ":" + seconds;
-
-            // 更新时钟显示
-            document.getElementById("clock").innerText = timeString;
-        }
-
-        // 每秒更新时间
-        setInterval(showTime, 1000);
-    </script>
+  <script>
+    // 在页面加载完成后，给心形元素添加动画效果
+    window.onload = function() {
+      var heart = document.getElementById('heart');
+      heart.classList.add('animate');
+    };
+  </script>
 </body>
 </html>

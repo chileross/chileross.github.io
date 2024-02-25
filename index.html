@@ -4,16 +4,35 @@
     <meta charset="UTF-8">
     <title>KaoLM</title>
     <style>
-        #clock {
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background-color: #1a1a1a;
             font-family: 'Arial', sans-serif;
+        }
+
+        #clock {
+            display: flex;
+            justify-content: center;
+            align-items: center;
             font-size: 3em;
-            color: #333;
-            text-align: center;
-            padding: 20px;
-            background-color: #f4f4f4;
-            border-radius: 10px;
-            margin: 50px auto;
+            color: #fff;
+            text-shadow: 0 0 10px rgba(255, 255, 255, 0.5), 0 0 20px rgba(255, 255, 255, 0.3), 0 0 30px rgba(255, 255, 255, 0.2), 0 0 40px rgba(255, 255, 255, 0.1);
+            border: 2px solid #fff;
+            border-radius: 50%;
             width: 200px;
+            height: 200px;
+            padding: 20px;
+            box-sizing: border-box;
+            animation: pulse 1s infinite;
+        }
+
+        @keyframes pulse {
+            0% { transform: scale(1); }
+            50% { transform: scale(1.05); }
+            100% { transform: scale(1); }
         }
     </style>
 </head>

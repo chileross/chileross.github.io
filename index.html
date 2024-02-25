@@ -2,44 +2,47 @@
 <html>
 <head>
   <title>KaoLM</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <style>
     body {
       font-family: Arial, sans-serif;
       text-align: center;
       background-color: #f0f0f0;
-      padding: 50px;
+      padding: 20px;
     }
 
     h1 {
-      font-size: 36px;
+      font-size: 24px;
       color: #333;
+      margin-bottom: 10px;
     }
 
     p {
-      font-size: 20px;
+      font-size: 16px;
       color: #666;
+      margin-bottom: 30px;
     }
 
     .heart {
-      width: 100px;
-      height: 90px;
+      width: 80px;
+      height: 72px;
       position: relative;
-      margin: 50px auto;
+      margin: 0 auto;
     }
 
     .heart::before,
     .heart::after {
       content: "";
       position: absolute;
-      top: 40px;
-      width: 52px;
-      height: 80px;
+      top: 32px;
+      width: 42px;
+      height: 72px;
       border-radius: 50px 50px 0 0;
       background: red;
     }
 
     .heart::before {
-      left: 50px;
+      left: 40px;
       transform: rotate(-45deg);
       transform-origin: 0 100%;
     }
@@ -51,7 +54,7 @@
     }
 
     .heart.animate {
-      animation: pulse 2s infinite;
+      animation: pulse 1.5s infinite;
     }
 
     @keyframes pulse {
@@ -63,6 +66,33 @@
       }
       100% {
         transform: scale(1);
+      }
+    }
+
+    /* 添加响应式媒体查询 */
+    @media (max-width: 600px) {
+      h1 {
+        font-size: 20px;
+      }
+
+      p {
+        font-size: 14px;
+      }
+
+      .heart {
+        width: 60px;
+        height: 54px;
+      }
+
+      .heart::before,
+      .heart::after {
+        width: 30px;
+        height: 54px;
+        top: 24px;
+      }
+
+      .heart::before {
+        left: 30px;
       }
     }
   </style>

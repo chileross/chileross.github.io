@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <title>获取时间</title>
+    <script type="text/javascript">
+        function getTime() {
+            var date = new Date(); // 创建Date对象
+            var year = date.getFullYear(); // 年份
+            var month = date.getMonth() + 1; // 月份（注意月份从0开始计算，所以加1）
+            var day = date.getDate(); // 天数
+            var hours = date.getHours(); // 小时
+            var minutes = date.getMinutes(); // 分钟
+            var seconds = date.getSeconds(); // 秒数
+            
+            // 格式化输出
+            var timeString = year + "年" + month + "月" + day + "日 " + hours + ":" + minutes + ":" + seconds;
+            
+            document.getElementById("time").innerHTML = timeString; // 将结果赋值给指定id的元素
+        }
+        
+        window.onload = getTime; // 页面加载完成后自动调用函数
+    </script>
+</head>
+<body>
+    <h2 id="time"></h2> <!-- 用于展示时间的元素 -->
+</body>
+</html>

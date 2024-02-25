@@ -2,27 +2,45 @@
 <html lang="zh-CN">
 <head>
     <meta charset="UTF-8">
-    <title>获取时间</title>
-    <script type="text/javascript">
-        function getTime() {
-            var date = new Date(); // 创建Date对象
-            var year = date.getFullYear(); // 年份
-            var month = date.getMonth() + 1; // 月份（注意月份从0开始计算，所以加1）
-            var day = date.getDate(); // 天数
-            var hours = date.getHours(); // 小时
-            var minutes = date.getMinutes(); // 分钟
-            var seconds = date.getSeconds(); // 秒数
-            
-            // 格式化输出
-            var timeString = year + "年" + month + "月" + day + "日 " + hours + ":" + minutes + ":" + seconds;
-            
-            document.getElementById("time").innerHTML = timeString; // 将结果赋值给指定id的元素
+    <title></title>
+    <style>
+        #clock {
+            font-family: 'Arial', sans-serif;
+            font-size: 3em;
+            color: #333;
+            text-align: center;
+            padding: 20px;
+            background-color: #f4f4f4;
+            border-radius: 10px;
+            margin: 50px auto;
+            width: 200px;
         }
-        
-        window.onload = getTime; // 页面加载完成后自动调用函数
-    </script>
+    </style>
 </head>
 <body>
-    <h2 id="time"></h2> <!-- 用于展示时间的元素 -->
+    <div id="clock"></div>
+
+    <script>
+        function showTime() {
+            var now = new Date();
+            var hours = now.getHours();
+            var minutes = now.getMinutes();
+            var seconds = now.getSeconds();
+
+            // 确保小时、分钟和秒都是两位数
+            hours = hours < 10 ? "0" + hours : hours;
+            minutes = minutes < 10 ? "0" + minutes : minutes;
+            seconds = seconds < 10 ? "0" + seconds : seconds;
+
+            // 格式化时间字符串
+            var timeString = hours + ":" + minutes + ":" + seconds;
+
+            // 更新时钟显示
+            document.getElementById("clock").innerText = timeString;
+        }
+
+        // 每秒更新时间
+        setInterval(showTime, 1000);
+    </script>
 </body>
 </html>
